@@ -1,4 +1,4 @@
-package com.zz.springcloud.user.config;
+package com.zz.springcloud.common.config;
 
 import tk.mybatis.mapper.common.Mapper;
 import tk.mybatis.mapper.common.MySqlMapper;

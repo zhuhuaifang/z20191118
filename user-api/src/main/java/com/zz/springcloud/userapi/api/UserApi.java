@@ -18,6 +18,6 @@ public interface UserApi {
     @RequestMapping(value = "/showOne")
     public ResponseEntity<User> showOne(User user);
 
-    @RequestMapping(value = "/update",method = RequestMethod.PUT)
+    @RequestMapping(value = "/update")
     public ResponseEntity update(User user);
 }

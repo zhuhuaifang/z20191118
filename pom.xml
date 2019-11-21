@@ -29,6 +29,8 @@
         <module>admin</module>
         <module>drug</module>
         <module>drug-api</module>
+        <module>doctor</module>
+        <module>doctor-api</module>
     </modules>
     <dependencies>
         <dependency>

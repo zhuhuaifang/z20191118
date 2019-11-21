@@ -4,7 +4,9 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.cloud.client.SpringCloudApplication;
 import org.springframework.cloud.netflix.hystrix.EnableHystrix;
 import org.springframework.cloud.openfeign.EnableFeignClients;
+import org.springframework.context.annotation.ComponentScan;
 
+@ComponentScan(basePackages = {"com.zz.springcloud"})
 @EnableFeignClients(basePackages = {"com.zz.springcloud.*.api"})  //开启feign负载均衡
 @EnableHystrix   //开启熔断机制断路
 @SpringCloudApplication
