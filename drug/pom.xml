@@ -7,9 +7,9 @@
         <artifactId>z20191118</artifactId>
         <version>0.0.1-SNAPSHOT</version>
     </parent>
-    <artifactId>admin</artifactId>
+    <artifactId>drug</artifactId>
     <version>0.0.1-SNAPSHOT</version>
-    <name>admin</name>
+    <name>drug</name>
     <description>Demo project for Spring Boot</description>
 
     <properties>
@@ -18,17 +18,8 @@
 
     <dependencies>
         <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-web</artifactId>
-        </dependency>
-        <dependency>
             <groupId>com.zz.springcloud</groupId>
             <artifactId>common</artifactId>
-            <version>0.0.1-SNAPSHOT</version>
-        </dependency>
-        <dependency>
-            <groupId>com.zz.springcloud</groupId>
-            <artifactId>user-api</artifactId>
             <version>0.0.1-SNAPSHOT</version>
         </dependency>
         <dependency>

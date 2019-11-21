@@ -27,6 +27,8 @@
         <module>user-api</module>
         <module>user</module>
         <module>admin</module>
+        <module>drug</module>
+        <module>drug-api</module>
     </modules>
     <dependencies>
         <dependency>
