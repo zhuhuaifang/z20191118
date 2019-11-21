@@ -4,6 +4,10 @@ import java.util.Date;
 import java.io.Serializable;
 import lombok.Data;
 
+import javax.persistence.Column;
+import javax.persistence.Id;
+import javax.persistence.Table;
+
 /**
  * (Drug)实体类
  *
@@ -11,9 +15,12 @@ import lombok.Data;
  * @since 2019-11-20 16:27:43
  */
 @Data
+@Table(name = "drug")
 public class Drug implements Serializable {
     private static final long serialVersionUID = -86735151718540806L;
     //药品id
+    @Id
+    @Column(name = "drug_id")
     private Integer drugId;
     //药品名字
     private String drugName;

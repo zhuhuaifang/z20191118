@@ -1,17 +1,13 @@
 package com.zz.springcloud.admin.controller;
 
 import com.github.pagehelper.PageInfo;
-import com.zz.springcloud.drugapi.api.DrugApi;
-import com.zz.springcloud.drugapi.pojo.Drug;
+import com.zz.springcloud.userapi.pojo.User;
 import com.zz.springcloud.userapi.api.UserApi;
-import com.zz.springcloud.userapi.pojo.Users;
+import com.zz.springcloud.userapi.pojo.User;
 import lombok.extern.log4j.Log4j2;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.CrossOrigin;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
-
-import javax.servlet.http.HttpServletResponse;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.*;
 
 
 @Log4j2
@@ -25,11 +21,25 @@ public class UserController {
 
     //@CrossOrigin
     @RequestMapping("/show")
-    public PageInfo<Users> showAll(HttpServletResponse response){
+    public ResponseEntity<PageInfo<User>> showAll(@RequestParam(value = "page",defaultValue = "1") int page, @RequestParam(value = "pageSize",defaultValue = "5") int pageSize, @RequestParam(value = "fuzzy",required = false)String fuzzy){
         //response.setHeader("Access-Control-Allow-Origin", "*");
-        //response.setHeader("Cache-Control","no-cache");
-        return userApi.showAll();
+        //response.setHeader("C ache-Control","no-cache");
+        log.info(userApi.showAll(page,pageSize,fuzzy));
+        return userApi.showAll(page,pageSize,fuzzy);
     }
 
+    @RequestMapping(value = "/showOne")
+    public ResponseEntity<User> showOne(@RequestParam("userId") Integer userId){
+        log.info("--------------"+userId);
+        User user = new User();
+        user.setUserId(userId);
+        log.info("========================"+userApi.showOne(user));
+        return userApi.showOne(user);
+    }
+
+    @RequestMapping("/update")
+    public ResponseEntity update(User user){
+        return userApi.update(user);
+    }
 
 }
