@@ -10,6 +10,9 @@ import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
+import tk.mybatis.mapper.entity.Example;
+
+import java.util.List;
 
 @Log4j2
 @RunWith(SpringRunner.class)
@@ -40,5 +43,13 @@ public class UserApplicationTests {
         user.setUserName("李四");
         User selectOne = userDao.selectOne(user);
         log.info("--------------------------"+selectOne);
+    }
+
+    @Test
+    public void showAll(){
+        Example example = new Example(User.class);
+        example.and().andNotEqualTo("status","-1");
+        List<User> users = userDao.selectByExample(example);
+        log.info(users);
     }
 }

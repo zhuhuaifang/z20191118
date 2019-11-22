@@ -19,8 +19,10 @@ public class UserServiceImpl implements UserService {
     @Override
     public PageInfo<User> showAll(int page,int pageSize) {
         PageHelper.startPage(page,pageSize);
-        List<User> UserList = userDao.selectAll();
-        return new PageInfo(UserList,5);
+        Example example = new Example(User.class);
+        example.and().andNotEqualTo("status","-1");
+        List<User> users = userDao.selectByExample(example);
+        return new PageInfo(users,5);
     }
 
     @Override
